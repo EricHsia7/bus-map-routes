@@ -45,6 +45,65 @@ function readJSON(filePath) {
 }
 
 /**
+ * Get API URL with no cache parameter (query string).
+ * @param city - 0: blobbus -> Taipei City, 2: ntpcbus -> New Taipei City
+ * @param api - 0: BusData, 1: BusEvent, 2: CarInfo, 3: CarUnusual, 4: EstimateTime, 5: IStop, 6: IStopPath, 7: OrgPathAttribute, 8: PathDetail, 9: Provider, 10: Route, 11: Stop, 12: SemiTimeTable, 13: StopLocation, 14: TimeTable, 15: BusRouteFareList, 16: BusShape
+ * @returns The path to a gzip file.
+ */
+function getDataPath(city, api) {
+  const cities = ['blobbus', 'ntpcbus'];
+  // blobbus → Taipei City
+  // ntpcbus → New Taipei City
+  const buckets = ['BusData', 'BusEvent', 'CarInfo', 'CarUnusual', 'EstimateTime', 'IStop', 'IStopPath', 'OrgPathAttribute', 'PathDetail', 'Provider', 'Route', 'Stop', 'SemiTimeTable', 'StopLocation', 'TimeTable', 'BusRouteFareList', 'BusShape'];
+  return `./data/${cities[city]}/Get${buckets[api]}.gz`;
+}
+
+function getRoute() {
+  const result = [];
+  const apis = [
+    [0, 10],
+    [1, 10]
+  ];
+  for (const api of apis) {
+    const data = readJSON(getDataPath(api[0], api[1]));
+    for (let i = data.BusInfo.length - 1; i >= 0; i--) {
+      result.push(data.BusInfo[i]);
+    }
+  }
+  return result;
+}
+
+function getStop() {
+  const result = [];
+  const apis = [
+    [0, 11],
+    [1, 11]
+  ];
+  for (const api of apis) {
+    const data = readJSON(getDataPath(api[0], api[1]));
+    for (let i = data.BusInfo.length - 1; i >= 0; i--) {
+      result.push(data.BusInfo[i]);
+    }
+  }
+  return result;
+}
+
+function getBusShape() {
+  const result = [];
+  const apis = [
+    [0, 16],
+    [1, 16]
+  ];
+  for (const api of apis) {
+    const data = readJSON(getDataPath(api[0], api[1]));
+    for (let i = data.length - 1; i >= 0; i--) {
+      result.push(data[i]);
+    }
+  }
+  return result;
+}
+
+/**
  * Build RouteID -> route metadata (name, etc.) so styles can be classified.
  *
  * NOTE: this must be fed a *route* feed. The stop feed (`GetStop.json`) carries
@@ -53,40 +112,32 @@ function readJSON(filePath) {
  * "\u591c\u5e02" would turn an ordinary route into a night route). Route names are
  * therefore only read from an explicit route feed.
  */
-function buildRouteMetadata(routesFile) {
+function buildRouteMetadata() {
   const metadata = new Map();
-  if (!routesFile) return metadata;
-  const routes = readJSON(routesFile);
-  const list = Array.isArray(routes) ? routes : routes.BusInfo || routes.routes || [];
-  for (const route of list) {
-    const routeId = Number(route.RouteID ?? route.routeId ?? route.Id);
-    if (!Number.isFinite(routeId) || metadata.has(routeId)) continue;
+  const Route = getRoute();
+  for (const route of Route) {
+    const routeId = route.Id;
     metadata.set(routeId, {
-      nameZh: route.nameZh ?? route.RouteName ?? route.routeNameZh ?? null,
-      nameEn: route.nameEn ?? route.routeNameEn ?? null
+      nameZh: route.nameZh,
+      nameEn: route.nameEn
     });
   }
   return metadata;
 }
 
 /** Optional stop feed: only used to report coverage, never to style routes. */
-function countStopRoutes(stopFile) {
-  if (!stopFile) return null;
-  const stops = readJSON(stopFile);
-  const list = Array.isArray(stops) ? stops : stops.BusInfo || [];
+function countStopRoutes() {
+  const Stop = getStop();
   const routeIds = new Set();
-  for (const stop of list) {
+  for (const stop of Stop) {
     const routeId = Number(stop.routeId ?? stop.RouteID);
     if (Number.isFinite(routeId)) routeIds.add(routeId);
   }
-  return { stops: list.length, routes: routeIds.size };
+  return { stops: Stop.length, routes: routeIds.size };
 }
 
 async function main() {
   const args = parseArgs(process.argv);
-  const shapeFile = args.shape || './data/GetBusShape.json';
-  const routesFile = args.routes || null;
-  const stopFile = args.stop || null;
   const outputDir = args.out || './routes';
   const pretty = Boolean(args.pretty);
 
@@ -98,10 +149,9 @@ async function main() {
     simplifyTolerance: Number(args.tolerance ?? TILER_DEFAULTS.simplifyTolerance)
   };
 
-  console.log('[tiler] reading', shapeFile);
-  const busShape = readJSON('./data/blobbus/GetBusShape.gz').concat('./data/ntpcbus/GetBusShape.gz');
-  const routeMetadata = buildRouteMetadata(routesFile);
-  const stopCoverage = countStopRoutes(stopFile);
+  const busShape = getBusShape();
+  const routeMetadata = buildRouteMetadata();
+  const stopCoverage = countStopRoutes();
   if (stopCoverage) console.log('[tiler] stop feed:', stopCoverage.stops, 'stops across', stopCoverage.routes, 'routes');
 
   const startedAt = Date.now();
