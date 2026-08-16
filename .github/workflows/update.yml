@@ -1,0 +1,78 @@
+name: Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 16 1 * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      
+      - name: Restore cached Node dependencies
+        id: restore-cached-node-dependencies
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            ./node_modules
+            package-lock.json
+          key: node-dependencies-${{ runner.os }}-${{ hashFiles('package.json') }}
+          restore-keys: |
+            node-dependencies-${{ runner.os }}-${{ hashFiles('package.json') }}
+
+      - name: Install Node dependencies
+        if: steps.restore-cached-node-dependencies.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Cache Node dependencies
+        id: cache-node-dependencies
+        uses: actions/cache/save@v5
+        if: steps.restore-cached-node-dependencies.outputs.cache-hit != 'true'
+        with:
+          path: |
+            ./node_modules
+            package-lock.json
+          key: ${{ steps.restore-cached-node-dependencies.outputs.cache-primary-key }}
+
+      - name: Download Map Data
+        run: |
+          mkdir ./data
+          mkdir ./data/blobbus
+          mkdir ./data/ntpcbus
+          curl -L -o ./data/blobbus/GetStop.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/blobbus/GetStop.gz"
+          curl -L -o ./data/blobbus/GetBusShape.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/blobbus/GetBusShape.gz"
+          curl -L -o ./data/ntpcbus/GetStop.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/ntpcbus/GetStop.gz"
+          curl -L -o ./data/ntpcbus/GetBusShape.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/ntpcbus/GetBusShape.gz"
+
+      - name: Generate Tile
+        run: node build-tiles.js
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions-bot"
+          git config --global user.email "41898282+github-actions-bot@users.noreply.github.com"
+
+      - name: Commit Generated Files
+        run: |
+          git checkout --orphan temp-branch  || true
+          git rm -r --cached . >/dev/null || true
+          git add ./routes -f || true
+          git commit -m "Updates" || true
+      # git rm -r --cached . >/dev/null -> unstage everything while keeping files on disk
+
+      - name: Push to Dist Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin temp-branch:dist --force || true
