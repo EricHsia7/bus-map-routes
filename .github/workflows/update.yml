@@ -52,8 +52,10 @@ jobs:
           mkdir ./data/ntpcbus
           curl -L -o ./data/blobbus/GetStop.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/blobbus/GetStop.gz"
           curl -L -o ./data/blobbus/GetBusShape.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/blobbus/GetBusShape.gz"
+          curl -L -o ./data/blobbus/GetRoute.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/blobbus/GetRoute.gz"
           curl -L -o ./data/ntpcbus/GetStop.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/ntpcbus/GetStop.gz"
           curl -L -o ./data/ntpcbus/GetBusShape.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/ntpcbus/GetBusShape.gz"
+          curl -L -o ./data/ntpcbus/GetRoute.gz "https://raw.githubusercontent.com/EricHsia7/bus-alternative-static-apis/refs/heads/dist/ntpcbus/GetRoute.gz"
 
       - name: Generate Tile
         run: node build-tiles.js
