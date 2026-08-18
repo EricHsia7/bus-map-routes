@@ -22,13 +22,13 @@ const { StyleTable, classifyRoute } = require('./styles');
 const TILER_DEFAULTS = {
   minZoom: 12,
   maxZoom: 16,
-  extent: 2048,
+  extent: 1024,
   /** Tile-local padding kept on every side, in extent units. */
   buffer: 64,
   /** Douglas-Peucker tolerance in extent units, applied per zoom. */
-  simplifyTolerance: 0.9,
+  simplifyTolerance: 1.2,
   /** Skip a tile feature whose clipped geometry is shorter than this (extent units). */
-  minFeatureLength: 1.5,
+  minFeatureLength: 1,
   cleaning: DEFAULTS
 };
 
@@ -210,10 +210,10 @@ function buildTiles(busShape, userOptions = {}, routeMetadata = new Map()) {
 
     const metadata = routeMetadata.get(record.routeId) || {};
     const className = classifyRoute({ ...metadata, ...record.raw });
-    const styleRef = styleTable.resolve(className, record.goBack);
     const featureId = `r${record.routeId}:${record.goBack}`;
 
     for (let zoom = options.minZoom; zoom <= options.maxZoom; zoom++) {
+      const styleRef = styleTable.resolve(className, record.goBack, zoom);
       for (const part of cleaned) {
         slicePart(part, zoom, options, (tileKey, coordinates) => {
           let tileFeatures = tiles.get(tileKey);

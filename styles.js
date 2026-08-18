@@ -30,68 +30,61 @@ const STYLESHEET = {
   version: 1,
   classes: {
     trunk: {
-      layer: 'route-trunk',
-      'line-fill': '#e8590c',
-      'line-width': 2.4,
-      'line-width-scale': [1, 1.35],
-      'line-casing-fill': '#ffffff',
-      'line-casing-width': 1.1,
+      'layer': 'route-trunk',
+      'line-fill': 'rgba(6,188,239,1)',
+      'line-width': 1.3,
+      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
-      'line-opacity': 1,
-      minzoom: 12
+      'minzoom': 12
     },
     express: {
-      layer: 'route-express',
-      'line-fill': '#1971c2',
-      'line-width': 2,
-      'line-width-scale': [1, 1.3],
-      'line-casing-fill': '#ffffff',
-      'line-casing-width': 1,
+      'layer': 'route-express',
+      'line-fill': 'rgba(11,181,249,1)',
+      'line-width': 0.9,
+      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
-      'line-opacity': 1,
-      minzoom: 12
+      'minzoom': 12
     },
     local: {
-      layer: 'route-local',
-      'line-fill': '#2f9e44',
-      'line-width': 1.6,
-      'line-width-scale': [1, 1.25],
-      'line-casing-fill': '#ffffff',
-      'line-casing-width': 0.9,
+      'layer': 'route-local',
+      'line-fill': 'rgba(25,171,250,1)',
+      'line-width': 0.6,
+      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.3], 16: [1.3, 1.3] },
       'line-cap': 'round',
       'line-join': 'round',
-      'line-opacity': 0.95,
-      minzoom: 12
+      'minzoom': 12
     },
     shuttle: {
-      layer: 'route-shuttle',
-      'line-fill': '#9c36b5',
-      'line-width': 1.4,
-      'line-width-scale': [1, 1.2],
-      'line-dasharray': [4, 2],
+      'layer': 'route-shuttle',
+      'line-fill': 'rgba(28,159,253,1)',
+      'line-width': 0.6,
+      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.2], 15: [1.2, 1.2], 16: [1.2, 1.2] },
       'line-cap': 'butt',
       'line-join': 'round',
-      'line-opacity': 0.95,
-      minzoom: 13
+      'minzoom': 12
     },
     night: {
-      layer: 'route-night',
-      'line-fill': '#343a40',
-      'line-width': 1.5,
-      'line-width-scale': [1, 1.25],
-      'line-dasharray': [6, 3],
+      'layer': 'route-night',
+      'line-fill': 'rgba(42,152,255,1)',
+      'line-width': 0.8,
+      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.2], 15: [1.2, 1.2], 16: [1.2, 1.2] },
       'line-cap': 'butt',
       'line-join': 'round',
-      'line-opacity': 0.9,
-      minzoom: 13
+      'minzoom': 12
     }
   },
   /** Return direction is drawn slightly thinner and translucent. */
   directionModifiers: {
-    [GoBack.RETURN]: { widthFactor: 0.85, opacityFactor: 0.85 },
-    [GoBack.LOOP]: { widthFactor: 1, opacityFactor: 1 }
+    [GoBack.RETURN]: {
+      'line-dasharray': [4, 6],
+      'line-casing-fill': 'rgba(255,255,255,1)',
+      'line-casing-width': 0.9
+    },
+    [GoBack.LOOP]: {
+      'line-dasharray': [4, 2]
+    }
   }
 };
 
@@ -109,6 +102,26 @@ function classifyRoute(record) {
   return 'local';
 }
 
+function deepAssign(target, source) {
+  for (const key in source) {
+    if (Object.prototype.hasOwnProperty.call(source, key)) {
+      if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key])) {
+        target[key] = deepAssign(target[key] || {}, source[key]);
+      } else if (Array.isArray(source[key])) {
+        target[key] = source[key].map((item) => {
+          if (typeof item === 'object' && item !== null) {
+            return deepAssign({}, item);
+          }
+          return item;
+        });
+      } else {
+        target[key] = source[key];
+      }
+    }
+  }
+  return target;
+}
+
 /**
  * Builds a deduplicated style table and hands out stable indices.
  */
@@ -123,21 +136,17 @@ class StyleTable {
    * Resolve (class, direction) to a style index, creating the entry on demand.
    * @returns {number} StyleRef
    */
-  resolve(className, goBack) {
-    const key = `${className}|${goBack}`;
+  resolve(className, goBack, zoom) {
+    const key = `${className}|${goBack}|${zoom}`;
     const existing = this.index.get(key);
     if (existing !== undefined) return existing;
 
     const base = this.stylesheet.classes[className] || this.stylesheet.classes.local;
-    const modifier = this.stylesheet.directionModifiers[goBack];
-    const style = { ...base };
+    const modifier = this.stylesheet.directionModifiers[goBack] || {};
+    const style = { ...deepAssign({}, base), ...deepAssign({}, modifier) };
 
-    if (modifier) {
-      style['line-width'] = Number((base['line-width'] * modifier.widthFactor).toFixed(3));
-      if (base['line-casing-width'] !== undefined) {
-        style['line-casing-width'] = Number((base['line-casing-width'] * modifier.widthFactor).toFixed(3));
-      }
-      style['line-opacity'] = Number(((base['line-opacity'] ?? 1) * modifier.opacityFactor).toFixed(3));
+    if (style['line-width-scale']) {
+      style['line-width-scale'] = style['line-width-scale'][zoom] || [1, 1];
     }
 
     const styleRef = this.styles.length;
