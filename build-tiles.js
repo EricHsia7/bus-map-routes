@@ -18,8 +18,11 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
-const zlib = require('node:zlib');
+const { decompressSync, gzipSync } = require('fflate');
 const { buildTiles, TILER_DEFAULTS } = require('./tiler');
+
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
 
 function parseArgs(argv) {
   const args = {};
@@ -40,7 +43,7 @@ function parseArgs(argv) {
 
 function readJSON(filePath) {
   const buffer = fs.readFileSync(filePath);
-  if (filePath.endsWith('.gz')) return JSON.parse(zlib.gunzipSync(buffer).toString('utf8'));
+  if (filePath.endsWith('.gz')) return JSON.parse(decoder.decode(decompressSync(buffer)));
   return JSON.parse(buffer.toString('utf8'));
 }
 
@@ -161,7 +164,6 @@ async function main() {
   console.log('[tiler] writing', tiles.size, 'tiles to', outputDir);
   fs.rmSync(outputDir, { recursive: true, force: true });
 
-  const encoder = new TextEncoder();
   let totalBytes = 0;
   let totalFeatures = 0;
   const zoomCounts = {};
@@ -171,7 +173,7 @@ async function main() {
     const directory = path.join(outputDir, z, x);
     fs.mkdirSync(directory, { recursive: true });
     const json = pretty ? JSON.stringify(collection, null, 2) : JSON.stringify(collection);
-    const compressed = zlib.gzipSync(encoder.encode(json), { level: 9 });
+    const compressed = gzipSync(encoder.encode(json));
     fs.writeFileSync(path.join(directory, `${y}.gz`), compressed);
     totalBytes += compressed.length;
     totalFeatures += collection.features.length;
