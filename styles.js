@@ -41,7 +41,7 @@ const STYLESHEET = {
     express: {
       'layer': 'route-express',
       'line-fill': 'rgba(11,181,249,1)',
-      'line-width': 0.9,
+      'line-width': 1.2,
       'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
@@ -50,8 +50,8 @@ const STYLESHEET = {
     local: {
       'layer': 'route-local',
       'line-fill': 'rgba(25,171,250,1)',
-      'line-width': 0.6,
-      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.3], 16: [1.3, 1.3] },
+      'line-width': 1.1,
+      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
       'minzoom': 12
@@ -59,18 +59,18 @@ const STYLESHEET = {
     shuttle: {
       'layer': 'route-shuttle',
       'line-fill': 'rgba(28,159,253,1)',
-      'line-width': 0.6,
-      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.2], 15: [1.2, 1.2], 16: [1.2, 1.2] },
-      'line-cap': 'butt',
+      'line-width': 1.1,
+      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
+      'line-cap': 'round',
       'line-join': 'round',
       'minzoom': 12
     },
     night: {
       'layer': 'route-night',
       'line-fill': 'rgba(42,152,255,1)',
-      'line-width': 0.8,
-      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.2], 15: [1.2, 1.2], 16: [1.2, 1.2] },
-      'line-cap': 'butt',
+      'line-width': 1.1,
+      'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
+      'line-cap': 'round',
       'line-join': 'round',
       'minzoom': 12
     }
@@ -83,7 +83,9 @@ const STYLESHEET = {
       'line-casing-width': 0.9
     },
     [GoBack.LOOP]: {
-      'line-dasharray': [4, 2]
+      'line-dasharray': [4, 2],
+      'line-casing-fill': 'rgba(255,255,255,1)',
+      'line-casing-width': 0.9
     }
   }
 };
