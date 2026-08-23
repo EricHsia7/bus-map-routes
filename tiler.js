@@ -21,7 +21,7 @@ const { StyleTable, classifyRoute } = require('./styles');
 
 const TILER_DEFAULTS = {
   minZoom: 12,
-  maxZoom: 16,
+  maxZoom: 17,
   extent: 1024,
   /** Tile-local padding kept on every side, in extent units. */
   buffer: 64,
