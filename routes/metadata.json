@@ -1,0 +1,981 @@
+{
+  "format": "route-tiles",
+  "version": 1,
+  "minZoom": 12,
+  "maxZoom": 17,
+  "extent": 2048,
+  "buffer": 128,
+  "tileCount": 15454,
+  "featureCount": 374048,
+  "lineStyles": [
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-local",
+      "line-fill": "rgba(113,172,249,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-night",
+      "line-fill": "rgba(140,189,252,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-express",
+      "line-fill": "rgba(99,164,248,1)",
+      "line-width": 1.2,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.25,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-trunk",
+      "line-fill": "rgba(85,155,246,1)",
+      "line-width": 1.3,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.35,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12,
+      "line-dasharray": [
+        4,
+        6
+      ]
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1.1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.1,
+        1.2
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.2,
+        1.3
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.3,
+        1.4
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1.4,
+        1.5
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    },
+    {
+      "layer": "route-shuttle",
+      "line-fill": "rgba(127,181,251,1)",
+      "line-width": 1.1,
+      "line-width-scale": [
+        1,
+        1
+      ],
+      "line-cap": "round",
+      "line-join": "round",
+      "line-casing-fill": "rgba(255,255,255,1)",
+      "line-casing-width": 1.15,
+      "minzoom": 12
+    }
+  ],
+  "tilesPerZoom": {
+    "12": 44,
+    "13": 139,
+    "14": 425,
+    "15": 1284,
+    "16": 3673,
+    "17": 9889
+  },
+  "generatedAt": "2026-08-30T16:09:37.535Z"
+}
