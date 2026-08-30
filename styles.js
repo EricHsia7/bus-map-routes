@@ -31,61 +31,67 @@ const STYLESHEET = {
   classes: {
     trunk: {
       'layer': 'route-trunk',
-      'line-fill': 'rgba(6,188,239,1)',
+      'line-fill': 'rgba(85,155,246,1)',
       'line-width': 1.3,
       'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
+      'line-casing-fill': 'rgba(255,255,255,1)',
+      'line-casing-width': 1.35,
       'minzoom': 12
     },
     express: {
       'layer': 'route-express',
-      'line-fill': 'rgba(11,181,249,1)',
+      'line-fill': 'rgba(99,164,248,1)',
       'line-width': 1.2,
       'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
+      'line-casing-fill': 'rgba(255,255,255,1)',
+      'line-casing-width': 1.25,
       'minzoom': 12
     },
     local: {
       'layer': 'route-local',
-      'line-fill': 'rgba(25,171,250,1)',
+      'line-fill': 'rgba(113,172,249,1)',
       'line-width': 1.1,
       'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
+      'line-casing-fill': 'rgba(255,255,255,1)',
+      'line-casing-width': 1.15,
       'minzoom': 12
     },
     shuttle: {
       'layer': 'route-shuttle',
-      'line-fill': 'rgba(28,159,253,1)',
+      'line-fill': 'rgba(127,181,251,1)',
       'line-width': 1.1,
       'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
+      'line-casing-fill': 'rgba(255,255,255,1)',
+      'line-casing-width': 1.15,
       'minzoom': 12
     },
     night: {
       'layer': 'route-night',
-      'line-fill': 'rgba(42,152,255,1)',
+      'line-fill': 'rgba(140,189,252,1)',
       'line-width': 1.1,
       'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
+      'line-casing-fill': 'rgba(255,255,255,1)',
+      'line-casing-width': 1.15,
       'minzoom': 12
     }
   },
   /** Return direction is drawn slightly thinner and translucent. */
   directionModifiers: {
     [GoBack.RETURN]: {
-      'line-dasharray': [4, 6],
-      'line-casing-fill': 'rgba(255,255,255,1)',
-      'line-casing-width': 0.9
+      'line-dasharray': [4, 6]
     },
     [GoBack.LOOP]: {
-      'line-dasharray': [4, 2],
-      'line-casing-fill': 'rgba(255,255,255,1)',
-      'line-casing-width': 0.9
+      'line-dasharray': [4, 2]
     }
   }
 };
