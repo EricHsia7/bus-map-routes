@@ -22,9 +22,9 @@ const { StyleTable, classifyRoute } = require('./styles');
 const TILER_DEFAULTS = {
   minZoom: 12,
   maxZoom: 17,
-  extent: 2048,
+  extent: 4096,
   /** Tile-local padding kept on every side, in extent units. */
-  buffer: 128,
+  buffer: 256,
   /** Douglas-Peucker tolerance in extent units, applied per zoom. */
   simplifyTolerance: 1.2,
   /** Skip a tile feature whose clipped geometry is shorter than this (extent units). */
