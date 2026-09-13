@@ -37,7 +37,7 @@ const STYLESHEET = {
       'line-cap': 'round',
       'line-join': 'round',
       'line-casing-fill': 'rgba(255,255,255,1)',
-      'line-casing-width': 1.35,
+      'line-casing-width': 1,
       'minzoom': 12
     },
     express: {
@@ -48,7 +48,7 @@ const STYLESHEET = {
       'line-cap': 'round',
       'line-join': 'round',
       'line-casing-fill': 'rgba(255,255,255,1)',
-      'line-casing-width': 1.25,
+      'line-casing-width': 1,
       'minzoom': 12
     },
     local: {
@@ -59,7 +59,7 @@ const STYLESHEET = {
       'line-cap': 'round',
       'line-join': 'round',
       'line-casing-fill': 'rgba(255,255,255,1)',
-      'line-casing-width': 1.15,
+      'line-casing-width': 1,
       'minzoom': 12
     },
     shuttle: {
@@ -70,7 +70,7 @@ const STYLESHEET = {
       'line-cap': 'round',
       'line-join': 'round',
       'line-casing-fill': 'rgba(255,255,255,1)',
-      'line-casing-width': 1.15,
+      'line-casing-width': 1,
       'minzoom': 12
     },
     night: {
@@ -81,17 +81,19 @@ const STYLESHEET = {
       'line-cap': 'round',
       'line-join': 'round',
       'line-casing-fill': 'rgba(255,255,255,1)',
-      'line-casing-width': 1.15,
+      'line-casing-width': 1,
       'minzoom': 12
     }
   },
   /** Return direction is drawn slightly thinner and translucent. */
   directionModifiers: {
     [GoBack.RETURN]: {
-      'line-dasharray': [4, 6]
+      'line-dasharray': [6, 4],
+      'line-cap': 'butt'
     },
     [GoBack.LOOP]: {
-      'line-dasharray': [4, 2]
+      'line-dasharray': [4, 2],
+      'line-cap': 'butt'
     }
   }
 };
