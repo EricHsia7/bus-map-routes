@@ -69,8 +69,8 @@ const STYLESHEET = {
       'line-width-scale': { 12: [1, 1.1], 13: [1.1, 1.2], 14: [1.2, 1.3], 15: [1.3, 1.4], 16: [1.4, 1.5] },
       'line-cap': 'round',
       'line-join': 'round',
-      'line-casing-fill': 'rgba(255,255,255,1)',
-      'line-casing-width': 1,
+      // 'line-casing-fill': 'rgba(255,255,255,1)',
+      // 'line-casing-width': 1,
       'minzoom': 12
     },
     night: {
