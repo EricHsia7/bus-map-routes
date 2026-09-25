@@ -26,7 +26,7 @@ const TILER_DEFAULTS = {
   /** Tile-local padding kept on every side, in extent units. */
   buffer: 256,
   /** Douglas-Peucker tolerance in extent units, applied per zoom. */
-  simplifyTolerance: 4,
+  simplifyTolerance: 2,
   /** Skip a tile feature whose clipped geometry is shorter than this (extent units). */
   minFeatureLength: 1,
   cleaning: DEFAULTS
